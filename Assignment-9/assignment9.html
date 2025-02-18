@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Appointment Booking System</h1>
+        <div class="services">
+            <div class="service">
+                <h2>Doctor Consultation</h2>
+                <button onclick="openForm('Doctor Consultation')">Book Appointment</button>
+            </div>
+            <div class="service">
+                <h2>Salon Booking</h2>
+                <button onclick="openForm('Salon Booking')">Book Appointment</button>
+            </div>
+            <div class="service">
+                <h2>Car Service</h2>
+                <button onclick="openForm('Car Service')">Book Appointment</button>
+            </div>
+        </div>
+
+        <div class="appointments">
+            <h2>Booked Appointments</h2>
+            <table id="appointmentsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Service</th>
+                        <th>Date & Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="appointmentForm" class="modal">
+        <div class="modal-content">
+            <h2>Book Appointment</h2>
+            <form id="appointmentFormFields">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" required>
+                
+                <label for="service">Select Service:</label>
+                <select id="service" required>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Salon">Salon</option>
+                    <option value="Car Service">Car Service</option>
+                </select>
+                
+                <label for="datetime">Preferred Date & Time:</label>
+                <input type="datetime-local" id="datetime" required>
+                
+                <label for="requests">Special Requests:</label>
+                <textarea id="requests"></textarea>
+                
+                <label>
+                    <input type="checkbox" id="terms" required> Agree to Terms
+                </label>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <button class="close-btn" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+
+    <div id="confirmationPopup" class="confirmation-popup">
+        <p id="confirmationMessage"></p>
+        <button onclick="closeConfirmation()">Close</button>
+    </div>
+    <div class="appointments">
+        <h2>Booked Appointments</h2>
+    
+       
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search appointments by name" oninput="searchAppointments()">
+            <select id="statusFilter" onchange="filterAppointments()">
+                <option value="">Filter by status</option>
+                <option value="Pending">Pending</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+    
+      
+
+    <script src="script.js"></script>
+</body>
+</html>
